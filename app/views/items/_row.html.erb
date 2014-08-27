@@ -1,0 +1,32 @@
+<tr class="item-<%= item.id %>">
+  <td><%= item.name %></td>
+  <td>$<%= item.price %></td>
+  <td><%= item.description %></td>
+  <td><%= item.gallery.try(:name) || "None" %></td>
+  <td><%= item.for_sale %></td>
+  <td><%= link_to "Link", item.image.url %></td>
+  <td>
+    <%= link_to "Tags", "", data: { target: ".edit-tags-#{item.id}", toggle: :modal } %> | 
+    <%= link_to "Edit", "", class: "edit-item", data: { id: item.id } %> | 
+    <%= link_to "Delete", "", class: "delete-item", data: { id: item.id } %>
+  </td>
+
+  <div class="modal fade edit-tags-modal edit-tags-<%= item.id %>" data-id="<%= item.id %>">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title"><%= item.name %> Tags</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <% @tags.each do |tag| %>
+              <div class="col-xs-4"><%= label_tag [item.id, tag.id].join("-"), check_box_tag([item.id, tag.id].join("-"), tag.id, item.tag_ids.include?(tag.id)) + " #{tag.name}" %></div>
+            <% end %>
+          </div>
+          <button type="button" class="btn btn-gray margin-top-10">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</tr>

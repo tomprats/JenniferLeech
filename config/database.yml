@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: jennifer_leech_development
+  pool: 5
+  timeout: 5000
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: jennifer_leech_production
+  pool: 5
+  timeout: 5000
+  host: localhost

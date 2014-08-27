@@ -1,0 +1,12 @@
+<div class="admin">
+  <div class="admin-item">
+    <div class="admin-table">
+      <h3 class="text-center">Items</h3>
+      <%= render partial: "items/table", locals: { items: @items } %>
+    </div>
+    <div class="admin-form">
+      <h3 class="text-center">Create Item</h3>
+      <%= render partial: "items/form" %>
+    </div>
+  </div>
+</div>

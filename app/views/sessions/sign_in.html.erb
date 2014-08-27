@@ -1,0 +1,14 @@
+<div class="admin">
+  <div class="sign-in">
+    <%= form_for :admin, url: save_path do |f| %>
+      <h3>Sign In</h3>
+      <div class="form-input">
+        <%= f.text_field :email, placeholder: "Email" %>
+      </div>
+      <div class="form-input">
+        <%= f.password_field :password, placeholder: "Password" %>
+      </div>
+      <%= f.submit "Sign In", class: "btn btn-gray margin-top-10" %>
+    <% end %>
+  </div>
+</div>

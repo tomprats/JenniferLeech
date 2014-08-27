@@ -1,0 +1,12 @@
+<div class="admin">
+  <div class="admin-tag">
+    <div class="admin-table">
+      <h3 class="text-center">Tags</h3>
+      <%= render partial: "tags/table", locals: { tags: @tags } %>
+    </div>
+    <div class="admin-form">
+      <h3 class="text-center">Create Tag</h3>
+      <%= render partial: "tags/form" %>
+    </div>
+  </div>
+</div>

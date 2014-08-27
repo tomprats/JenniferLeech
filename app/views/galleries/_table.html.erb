@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% galleries.each do |gallery|%>
+      <%= render partial: "galleries/row", locals: { gallery: gallery } %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render partial: "galleries/edit", locals: { gallery: galleries.last } %>

@@ -1,0 +1,33 @@
+<div class="modal fade edit-item-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Edit Item</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for item || Item.new, url: item_path(item.try(:id) || 0), method: :put do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.number_field :price, placeholder: "Price", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.select :gallery_id, @galleries.collect { |g| [g.name, g.id] }, { include_blank: "Choose Gallery" }, class: "form-control" %>
+          </div>
+          <div class="checkbox">
+            <label><%= f.check_box :for_sale %> For Sale?</label>
+          </div>
+          <div class="form-group">
+            <%= f.file_field :image %>
+          </div>
+          <%= f.submit "Save", class: "btn btn-gray margin-top-10" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

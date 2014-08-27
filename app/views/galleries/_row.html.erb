@@ -1,0 +1,8 @@
+<tr class="gallery-<%= gallery.id %>">
+  <td><%= gallery.name %></td>
+  <td><%= gallery.description %></td>
+  <td>
+    <%= link_to "Edit", "", class: "edit-gallery", data: { id: gallery.id } %>
+    <%= link_to "Delete", "", class: "delete-gallery", data: { id: gallery.id } %>
+  </td>
+</tr>

@@ -1,0 +1,7 @@
+<tr class="tag-<%= tag.id %>">
+  <td><%= tag.name %></td>
+  <td>
+    <%= link_to "Edit", "", class: "edit-tag", data: { id: tag.id } %>
+    <%= link_to "Delete", "", class: "delete-tag", data: { id: tag.id } %>
+  </td>
+</tr>

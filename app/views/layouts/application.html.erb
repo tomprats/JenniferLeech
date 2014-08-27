@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JL Photography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="JL Photography">
+    <meta name="description" content="Original Photography from Jennifer Leech">
+    <meta property="og:title" content="JL Photography"/>
+    <meta property="og:site_name" content="JL Photography"/>
+    <meta property="og:url" content="http://www.IDK.com"/>
+    <meta property="og:description" content="Original Photography from Jennifer Leech"/>
+    <meta property="og:image" content="<%= image_url "meta.jpg" %>"/>
+    <link rel="shortcut icon" type="image/x-icon" href="<%= image_url "meta.jpg" %>">
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render partial: "layouts/alerts" %>
+    <%= render partial: "layouts/sidebar" %>
+    <div class="page-content">
+      <%= yield %>
+    </div>
+  </body>
+</html>

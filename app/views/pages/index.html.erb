@@ -1,0 +1,25 @@
+<div class="owl-wrapper">
+  <div class="owl-carousel">
+    <% @galleries.each do |gallery| %>
+      <%= link_to "", class: "gallery-link", data: { id: gallery.id } do %>
+        <%= image_tag gallery.image.url %>
+        <div class="gallery-name"><%= gallery.name %></div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<% @galleries.each do |gallery| %>
+  <div class="gallery gallery-<%= gallery.id %> hide">
+    <h3 class="main-gallery-name"><%= gallery.name %></h3>
+    <div class="main-gallery-description"><%= gallery.description %></div>
+    <div class="items">
+      <% gallery.items.each do |item| %>
+        <%= link_to "", class: "item-link", data: { id: item.id } do %>
+          <%= image_tag item.image.url %>
+          <div class="item-name"><%= item.name %></div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
