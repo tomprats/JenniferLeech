@@ -10,6 +10,12 @@
           <div class="form-tag">
             <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
           </div>
+          <div class="form-group">
+            <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.select :primary_item_id, @items.collect { |g| [g.name, g.id] }, { include_blank: "Choose Item" }, class: "form-control" %>
+          </div>
           <%= f.submit "Save", class: "btn btn-gray margin-top-10" %>
         <% end %>
       </div>

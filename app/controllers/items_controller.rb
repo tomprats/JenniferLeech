@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @tags = Tag.all
-    @galleries = Gallery.all
   end
 
   def create
@@ -18,7 +17,6 @@ class ItemsController < ApplicationController
   def edit
     item = Item.find_by(id: params[:id])
     @tags = Tag.all
-    @galleries = Gallery.all
     render json: { status: 200, html: render_to_string(partial: "items/edit", locals: { item: item }, layout: false) }
   end
 

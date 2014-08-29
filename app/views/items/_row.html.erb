@@ -2,7 +2,6 @@
   <td><%= item.name %></td>
   <td>$<%= item.price %></td>
   <td><%= item.description %></td>
-  <td><%= item.gallery.try(:name) || "None" %></td>
   <td><%= item.for_sale %></td>
   <td><%= link_to "Link", item.image.url %></td>
   <td>

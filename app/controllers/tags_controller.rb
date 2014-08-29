@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
   def index
     @tags = Tag.all
+    @items = Item.all
   end
 
   def create
@@ -14,7 +15,7 @@ class TagsController < ApplicationController
 
   def edit
     tag = Tag.find_by(id: params[:id])
-    @items = Item.all
+    @items = tag.items
     render json: { status: 200, html: render_to_string(partial: "tags/edit", locals: { tag: tag }, layout: false) }
   end
 
@@ -35,6 +36,6 @@ class TagsController < ApplicationController
 
   private
   def tag_params
-    params.require(:tag).permit(:name)
+    params.require(:tag).permit(:name, :description, :primary_item_id)
   end
 end

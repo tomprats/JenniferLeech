@@ -7,19 +7,25 @@
 .owl-wrapper {
 }
 
-.item-link {
-  width: 400px;
+.items {
+  position: relative;
 }
-
+.item-box {
+  position: absolute;
+  padding: 10px;
+  .item-link { width: 100%; }
+}
+.tag-link {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
 .item-link,
-.gallery-link {
+.tag-link {
   vertical-align: top;
   display: inline-block;
   position: relative;
   white-space: nowrap;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 20px;
   img {
     width: 100%;
     -webkit-border-radius: 10px;
@@ -28,7 +34,7 @@
     display: block;
   }
   .item-name,
-  .gallery-name {
+  .tag-name {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -46,11 +52,11 @@
   }
 }
 
-.gallery {
-  .main-gallery-name {
+.tag {
+  .main-tag-name {
     display: inline-block;
   }
-  .main-gallery-description {
+  .main-tag-description {
     margin-left: 20px;
     display: inline-block;
   }

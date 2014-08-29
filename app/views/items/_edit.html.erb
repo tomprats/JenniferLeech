@@ -16,9 +16,6 @@
           <div class="form-group">
             <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
           </div>
-          <div class="form-group">
-            <%= f.select :gallery_id, @galleries.collect { |g| [g.name, g.id] }, { include_blank: "Choose Gallery" }, class: "form-control" %>
-          </div>
           <div class="checkbox">
             <label><%= f.check_box :for_sale %> For Sale?</label>
           </div>
