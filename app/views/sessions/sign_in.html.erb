@@ -1,12 +1,12 @@
 <div class="admin">
-  <div class="sign-in">
+  <div class="admin-form">
     <%= form_for :admin, url: save_path do |f| %>
       <h3>Sign In</h3>
-      <div class="form-input">
-        <%= f.text_field :email, placeholder: "Email" %>
+      <div class="form-group">
+        <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
       </div>
-      <div class="form-input">
-        <%= f.password_field :password, placeholder: "Password" %>
+      <div class="form-group">
+        <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
       </div>
       <%= f.submit "Sign In", class: "btn btn-gray margin-top-10" %>
     <% end %>
