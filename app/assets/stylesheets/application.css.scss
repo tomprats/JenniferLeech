@@ -13,6 +13,8 @@
  */
 @import "bootstrap";
 @import "font-awesome";
+@import "variables";
+@import url(http://fonts.googleapis.com/css?family=Expletus+Sans:700,400);
 
 .flash {
   position: fixed;
@@ -22,7 +24,7 @@
 }
 
 .btn-gray {
-  @include button-variant(white, #646464, #646464);
+  @include button-variant(white, $gray, $gray);
 }
 
 .margin-top-10 {

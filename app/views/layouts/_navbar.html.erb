@@ -1,11 +1,18 @@
-<nav role="navigation">
-  <%= link_to image_tag("meta.jpg", class: "img-circle"), root_path, class: "sidebar-brand" %>
+<% if action_name == "index" && controller_name == "pages" %>
+  <div class="header-container" data-image=<%= image_path "header.jpg" %>>
+    <div class="header-text">
+      <h1>JL Photography</h1>
+      <%= link_to "", "#", class: "fa fa-chevron-down fa-2x btn btn-gray"%>
+    </div>
+  </div>
+<% end %>
+
+<nav role="navigation" id="navbar">
   <div class="navbar">
     <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About The Artist", about_path %></li>
-      <li><%= link_to "Items For Sale", about_path %></li>
-      <li><%= link_to "Previous Works", about_path %></li>
+      <li><%= link_to "About Me", about_path %></li>
+      <li><%= link_to "Gallery", root_path %></li>
+      <li><%= link_to "Contact Me", contact_path %></li>
     </ul>
     <% if request.subdomain == "admin" %>
       <hr>

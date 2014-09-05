@@ -15,7 +15,7 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class="<%= "#{action_name} #{controller_name}" %>">
     <%= render partial: "layouts/alerts" %>
     <%= render partial: "layouts/navbar" %>
     <div class="page-content">
