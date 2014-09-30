@@ -6,6 +6,7 @@ gem "pg"
 gem "bcrypt"
 gem "carrierwave"
 gem "cloudinary"
+gem "unirest"
 
 # Front End
 gem "sass-rails", "~> 4.0.3"

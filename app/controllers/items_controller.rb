@@ -22,6 +22,10 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find_by(id: params[:id])
+    unless params[:item]
+      params[:item] = {}
+      params[:item][:tag_ids] = []
+    end
     @tags = Tag.all
     if item.update_attributes(item_params)
       render json: { status: 200, id: item.id, html: render_to_string(partial: "items/row", locals: { item: item }, layout: false) }

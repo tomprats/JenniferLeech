@@ -3,6 +3,7 @@ class ItemImageUploader < CarrierWave::Uploader::Base
     include Cloudinary::CarrierWave
   else
     storage :file
+    asset_host "http://tmp.t.proxylocal.com"
   end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

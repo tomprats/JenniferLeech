@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830015150) do
+ActiveRecord::Schema.define(version: 20140930021057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,30 @@ ActiveRecord::Schema.define(version: 20140830015150) do
     t.datetime "updated_at"
   end
 
+  create_table "imgur_albums", force: true do |t|
+    t.string   "imgur_id"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "imgur_images", force: true do |t|
+    t.string   "imgur_id"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "items", force: true do |t|
     t.integer  "gallery_id"
     t.string   "name"
-    t.integer  "price",       default: 0
+    t.integer  "price",          default: 0
     t.string   "description"
     t.string   "image"
-    t.boolean  "for_sale",    default: true
+    t.boolean  "for_sale",       default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "imgur_image_id"
   end
 
   create_table "items_tags", id: false, force: true do |t|
@@ -49,6 +64,7 @@ ActiveRecord::Schema.define(version: 20140830015150) do
     t.datetime "updated_at"
     t.integer  "primary_item_id"
     t.string   "description"
+    t.integer  "imgur_album_id"
   end
 
 end
