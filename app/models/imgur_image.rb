@@ -20,7 +20,6 @@ class ImgurImage < ActiveRecord::Base
   def update_image
     Imgur::Image.update(
       imgur_id: self.imgur_id,
-      image: self.image,
       title: self.name,
       description: self.description
     )

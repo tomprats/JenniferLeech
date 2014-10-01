@@ -2,25 +2,15 @@ class Item < ActiveRecord::Base
   has_and_belongs_to_many :tags, after_add: :add_to_album, before_remove: :remove_from_album
   belongs_to :imgur_image, dependent: :destroy
 
-  validates_presence_of :name, :price, :image
+  validates_presence_of :name, :price
 
-#  after_create :create_image
-#  after_update :update_image
+  after_create :create_image
+  after_update :update_image
 
-  mount_uploader :image, ItemImageUploader
+  attr_accessor :image
 
   before_validation do
     self.price = 0 if self.price.blank?
-  end
-
-  def convert_to_imgur
-    new_image = ImgurImage.create(
-      url: true,
-      image: self.image.url,
-      name: self.name,
-      description: self.description
-    )
-    update_attributes(imgur_image_id: new_image.id)
   end
 
   private

@@ -81,7 +81,6 @@ module Imgur
     def self.update(options = {})
       url = "https://api.imgur.com/3/album/#{options[:imgur_id]}"
       params = {
-        ids: options[:ids],
         title: options[:title],
         description: options[:description],
         privacy: options[:privacy],
@@ -100,10 +99,7 @@ module Imgur
 
     def self.remove_images(options = {})
       url = "https://api.imgur.com/3/album/#{options[:imgur_id]}/remove_images"
-      params = {
-        ids: options[:ids]
-      }
-      api_post(url, params).body["data"]
+      api_delete("#{url}?ids=#{options[:ids].join(",")}").body["data"]
     end
 
     def self.delete(imgur_id)
@@ -119,6 +115,15 @@ module Imgur
         image: options[:image],
         album: options[:album_id],
         type: options[:url] ? "URL" : "file",
+        title: options[:title],
+        description: options[:description]
+      }
+      api_post(url, params).body["data"]
+    end
+
+    def self.update(options = {})
+      url = "https://api.imgur.com/3/image/#{options[:imgur_id]}"
+      params = {
         title: options[:title],
         description: options[:description]
       }

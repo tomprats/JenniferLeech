@@ -32,7 +32,6 @@ class ImgurAlbum < ActiveRecord::Base
   def update_album
     Imgur::Album.update(
       imgur_id: self.imgur_id,
-      ids: self.image_ids,
       title: self.name,
       description: self.description
     )

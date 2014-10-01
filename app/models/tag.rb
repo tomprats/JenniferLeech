@@ -6,19 +6,12 @@ class Tag < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
-#  after_create :create_album
-#  after_update :update_album
+  after_create :create_album
+  after_update :update_album
 
   def image
-    primary_item.try(:image) || items.first.try(:image)
-  end
-
-  def convert_to_imgur
-    new_album = ImgurAlbum.create(
-      name: self.name,
-      description: self.description
-    )
-    update_attributes(imgur_album_id: new_album.id)
+    item = primary_item || items.first
+    item && item.imgur_image
   end
 
   private
@@ -38,10 +31,10 @@ class Tag < ActiveRecord::Base
   end
 
   def add_to_album(item)
-    item.imgur_image.imgur_id
+    self.imgur_album.add_images([item.imgur_image.imgur_id])
   end
 
   def remove_from_album(item)
-    item.imgur_image.imgur_id
+    self.imgur_album.remove_images([item.imgur_image.imgur_id])
   end
 end

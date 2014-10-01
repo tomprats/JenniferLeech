@@ -3,7 +3,7 @@
   <td>$<%= item.price %></td>
   <td><%= item.description %></td>
   <td><%= item.for_sale %></td>
-  <td><%= link_to "Link", item.image.url %></td>
+  <td><%= link_to "Link", item.imgur_image.link %></td>
   <td>
     <%= link_to "Tags", "", data: { target: ".edit-tags-#{item.id}", toggle: :modal } %> | 
     <%= link_to "Edit", "", class: "edit-item", data: { id: item.id } %> | 

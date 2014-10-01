@@ -35,18 +35,20 @@
 .owl-wrapper {
   padding: 0 60px;
 }
-.owl-controls .owl-nav div {
+.owl-controls .owl-nav {
   position: absolute;
+  width: 100%;
+  top: 25%;
 }
 
 .owl-controls .owl-prev {
+  position: absolute;
   left: -45px;
-  top: 75px;
 }
 
 .owl-controls .owl-next {
+  position: absolute;
   right: -45px;
-  top: 75px;
 }
 
 // Styling dots

@@ -4,8 +4,6 @@ source "https://rubygems.org"
 gem "rails", "4.1.4"
 gem "pg"
 gem "bcrypt"
-gem "carrierwave"
-gem "cloudinary"
 gem "unirest"
 
 # Front End

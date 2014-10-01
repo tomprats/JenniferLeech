@@ -2,7 +2,7 @@
   <div class="owl-carousel">
     <% @tags.each do |tag| %>
       <%= link_to "", class: "tag-link", data: { id: tag.id } do %>
-        <%= image_tag tag.image.url %>
+        <%= image_tag tag.image.link %>
         <div class="tag-name"><%= tag.name %></div>
       <% end %>
     <% end %>
@@ -16,8 +16,8 @@
     <div class="items">
       <% tag.items.each do |item| %>
         <div class="item-box">
-          <%= link_to item.image.url, class: "item-link", data: { id: item.id }, rel: "prettyPhoto[#{tag.name}]", title: item.description do %>
-            <%= image_tag item.image.url, alt: item.name %>
+          <%= link_to item.imgur_image.link, class: "item-link", data: { id: item.id }, rel: "prettyPhoto[#{tag.name}]", title: item.description do %>
+            <%= image_tag item.imgur_image.link, alt: item.name %>
             <div class="item-name"><%= item.name %></div>
           <% end %>
         </div>
